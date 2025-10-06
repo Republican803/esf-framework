@@ -1,0 +1,22 @@
+# Example FiveM server.cfg for ESF Framework
+# Copy to server.cfg and edit secrets (e.g., mysql_connection_string)
+
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+
+sets sv_projectName "ESF Framework Server"
+sets sv_projectDesc "Realistic Emergency Services Simulation"
+
+sv_scriptHookAllowed 0
+sv_hostname "ESF Framework Dev Server"
+
+# Database (oxmysql)
+set mysql_connection_string "mysql://user:pass@localhost/esf?charset=utf8mb4"
+
+# License key (get from https://keymaster.fivem.net)
+sv_licenseKey "your_fivem_license_key_here"
+
+# Resources (use start_esf.cfg.example for ensure order)
+exec start_esf.cfg.example
+
+# No secrets here - keep them out of Git!

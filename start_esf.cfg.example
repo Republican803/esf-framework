@@ -1,0 +1,24 @@
+# Example resource start order for ESF Framework
+# Ensure in this order to respect dependencies
+
+ensure ox_lib
+ensure oxmysql
+ensure ox_inventory
+
+ensure [esf]
+# Individual resources (empty in Phase 0, but listed for future)
+ensure esf_core
+ensure esf_identity
+ensure esf_departments
+ensure esf_world
+ensure esf_mdt
+ensure esf_dispatch
+ensure esf_police
+ensure esf_ai
+ensure esf_ai_traffic
+ensure esf_fire
+ensure esf_ems
+ensure esf_integrations
+ensure esf_scenario_editor
+ensure esf_analytics
+ensure esf_utils

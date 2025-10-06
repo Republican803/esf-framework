@@ -1,0 +1,35 @@
+name: ESF Framework
+description: One-click setup for ESF Emergency Services Framework
+author: Failure Friends
+version: 0.1.0
+
+tasks:
+  - action: download_github
+    src: https://github.com/oxmysql/oxmysql/releases/latest/download/oxmysql.zip
+    dest: ${{server_path}}/resources/oxmysql.zip
+  - action: unzip
+    src: ${{server_path}}/resources/oxmysql.zip
+    dest: ${{server_path}}/resources/[ox]/
+  - action: download_github
+    src: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
+    dest: ${{server_path}}/resources/ox_lib.zip
+  - action: unzip
+    src: ${{server_path}}/resources/ox_lib.zip
+    dest: ${{server_path}}/resources/[ox]/
+  - action: download_github
+    src: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
+    dest: ${{server_path}}/resources/ox_inventory.zip
+  - action: unzip
+    src: ${{server_path}}/resources/ox_inventory.zip
+    dest: ${{server_path}}/resources/[ox]/
+
+  - action: connect_db
+  - action: query_db
+    query: CREATE DATABASE IF NOT EXISTS `esf` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+  - action: set_variable
+    from: server.cfg.example
+    dest: ${{server_path}}/server.cfg
+
+txAdminInterfacePort: 40120
+txAdminPort: 40120

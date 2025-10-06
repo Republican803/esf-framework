@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lua
+        uses: leafo/gh-actions-lua@v10
+        with:
+          luaVersion: "5.1"
+
+      - name: Install Luarocks
+        uses: leafo/gh-actions-luarocks@v4
+
+      - name: Install Luacheck
+        run: luarocks install luacheck
+
+      - name: Install Stylua
+        run: |
+          curl -L https://github.com/JohnnyMorganz/StyLua/releases/download/v0.20.0/stylua-linux-x86_64.zip -o stylua.zip
+          unzip stylua.zip
+          chmod +x stylua
+          mv stylua /usr/local/bin/
+
+      - name: Run Luacheck
+        run: luacheck resources/ --config .luacheckrc
+
+      - name: Run Stylua Check
+        run: stylua --check resources/
+
+      - name: Validate JSON Files
+        run: |
+          find . -name "*.json" -not -path "./node_modules/*" -exec jq . {} \;

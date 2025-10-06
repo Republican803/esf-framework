@@ -1,0 +1,22 @@
+# OS/IDE files
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Temp/build files
+node_modules/
+*.log
+*.tmp
+*.zip
+build/
+
+# Secrets (never commit)
+server.cfg
+*.key
+*.pem
+*.sql (except migrations)
+
+# FiveM cache
+cache/
