@@ -1,21 +1,41 @@
--- fxmanifest.lua for [resource name] (e.g., esf_core)
 fx_version 'cerulean'
 game 'gta5'
 
-author '[Your Name]'
-description 'ESF Framework Resource: [Resource Description]'
-version '0.0.1'  -- Phase 0
+author 'Your Name'
+description 'ESF Framework Core: Shared plumbing for all modules'
+version '1.0.0'  -- Phase 1
 
--- Dependencies (for future)
 dependencies {
     '/server:5848',  -- OneSync Infinity
     'ox_lib',
     'oxmysql'
 }
 
--- Files (empty for now)
-client_scripts {}
-server_scripts {}
-shared_scripts {}
+server_scripts {
+    'server/main.lua',
+    'server/event_bus.lua',
+    'server/logger.lua',
+    'server/db.lua',
+    'server/config_loader.lua',
+    'server/timekeeper.lua'
+}
+
+client_scripts {
+    'client/core.lua',
+    'client/notify.lua',
+    'client/markers.lua'
+}
+
+shared_scripts {
+    'shared/enums.lua',
+    'shared/constants.lua',
+    'shared/schema.lua'
+}
+
+files {
+    'config/permissions.json',
+    'config/server_settings.json',
+    'config/locales/en-US.json'
+}
 
 lua54 'yes'

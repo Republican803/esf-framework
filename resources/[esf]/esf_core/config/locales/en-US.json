@@ -1,0 +1,9 @@
+{
+  "welcome": "Welcome to ESF",
+  "error_db": "Database error occurred",
+  "notify_success": "Operation successful",
+  "marker_prompt": "Press E to interact",
+  "departments": {
+    "LSPD": "Los Santos Police Department"
+  }
+}

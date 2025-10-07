@@ -1,0 +1,9 @@
+{
+  "roles": {
+    "admin": ["*"],
+    "officer": ["mdt:read", "dispatch:assign", "police:arrest"],
+    "fire": ["fire:deploy", "ems:transport"],
+    "ems": ["ems:meds", "ems:vitals"]
+  },
+  "defaults": ["core:join"]
+}

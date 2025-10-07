@@ -1,0 +1,7 @@
+{
+  "log_level": "info",
+  "onesync_required": true,
+  "lod_distance": 500,
+  "ai_spawn_budget": 100,
+  "tick_rate": 1000
+}
